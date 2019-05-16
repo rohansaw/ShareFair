@@ -14,7 +14,7 @@ import * as firebase from 'firebase';
 import LoginScreen from './src/screens/LoginScreen';
 
 // Your web app's Firebase configuration
-var firebaseConfig = {
+const firebaseConfig = {
   apiKey: API_KEY,
   authDomain: AUTH_DOMAIN,
   databaseURL: DATABASE_URL,
