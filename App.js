@@ -9,6 +9,21 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 
+import * as firebase from 'firebase';
+
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyDr91jvo96cBYLaQuQ5qoQM6dqhAvJNly4",
+  authDomain: "sharefair-d252f.firebaseapp.com",
+  databaseURL: "https://sharefair-d252f.firebaseio.com",
+  projectId: "sharefair-d252f",
+  storageBucket: "sharefair-d252f.appspot.com",
+  messagingSenderId: "551524519235",
+  appId: "1:551524519235:web:d958fe962f40a072"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
