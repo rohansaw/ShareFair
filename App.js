@@ -8,12 +8,13 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import {API_KEY, AUTH_DOMAIN, DATABASE_URL, projectId, storageBucket, messagingSenderId, appId} from 'react-native-dotenv';
 
 import * as firebase from 'firebase';
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-  apiKey: "AIzaSyDr91jvo96cBYLaQuQ5qoQM6dqhAvJNly4",
+  apiKey: API_KEY,
   authDomain: "sharefair-d252f.firebaseapp.com",
   databaseURL: "https://sharefair-d252f.firebaseio.com",
   projectId: "sharefair-d252f",
