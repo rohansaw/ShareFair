@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import {API_KEY, AUTH_DOMAIN, DATABASE_URL, projectId, storageBucket, messagingSenderId, appId} from 'react-native-dotenv';
+import {API_KEY, AUTH_DOMAIN, DATABASE_URL, PROJECT_ID, STORAGE_BUCKET, MESSAGING_SENDER_ID, APP_ID} from 'react-native-dotenv';
 
 import * as firebase from 'firebase';
 import LoginScreen from './src/screens/LoginScreen';
@@ -16,12 +16,12 @@ import LoginScreen from './src/screens/LoginScreen';
 // Your web app's Firebase configuration
 var firebaseConfig = {
   apiKey: API_KEY,
-  authDomain: "sharefair-d252f.firebaseapp.com",
-  databaseURL: "https://sharefair-d252f.firebaseio.com",
-  projectId: "sharefair-d252f",
-  storageBucket: "sharefair-d252f.appspot.com",
-  messagingSenderId: "551524519235",
-  appId: "1:551524519235:web:d958fe962f40a072"
+  authDomain: AUTH_DOMAIN,
+  databaseURL: DATABASE_URL,
+  projectId: PROJECT_ID,
+  storageBucket: STORAGE_BUCKET,
+  messagingSenderId: MESSAGING_SENDER_ID,
+  appId: APP_ID,
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);

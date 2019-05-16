@@ -1,4 +1,6 @@
 package-lock.json
+# alle persönlichen Daten kommen in die Karre
+.env
 # OSX
 #
 .DS_Store
