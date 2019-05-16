@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, TextInput, Button} from 'react-native';
 
 import * as firebase from 'firebase';
 import LoginScreen from './src/screens/LoginScreen';
@@ -33,30 +33,76 @@ const instructions = Platform.select({
 });
 
 export default class App extends Component {
-  render() {
+  constructor(props){
+    super(props);
+    this.state = ({
+        email : '',
+        password : ''
+    })
+}
+
+loginUser = (email,password) => {
+    try{
+        firebase.auth().signInWithEmailAndPassword(email,password).then(function(user){
+            console.log(user);
+        })
+    }catch(error){
+        console.log(error.toString());
+    }
+}
+
+render() {
     return (
-      <View style={styles.container}>
-        <LoginScreen/>
-      </View>
+    <View style={styles.container} behavior="padding">
+        <TextInput 
+            style={styles.input}
+            placeholder='Email' 
+            onChangeText= {(email)=> this.setState({email})}
+        />
+
+        <TextInput 
+            style={styles.input}
+            placeholder='Password' 
+            secureTextEntry={true} 
+            onChangeText= {(password)=> this.setState({password})}
+        />      
+
+        <Button 
+            gradient title='Login!'
+            onPress = {()=> this.loginUser(this.state.email, this.state.password)}>
+        </Button>
+
+    </View>
     );
-  }
+}
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    width: '100%',
+    backgroundColor: '#fff',
+  },
+  contentContainer: {
+  },
+  getStartedContainer: {
     alignItems: 'center',
+    marginHorizontal: 50,
+  },
+  headerContainer : {
+    width: 100 + "%",
+    height: 90,
     backgroundColor: '#F5FCFF',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  hasErrors: {
+    backgroundColor: '#EAEB5E',
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  input: {
+    backgroundColor: '#fff',
+    borderRadius: 0,
+    borderWidth: 0,
+    borderBottomColor: '#ddd',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  }
 });
+
