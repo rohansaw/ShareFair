@@ -1,4 +1,5 @@
 import React from 'react';
+import firebase from 'firebase'
 import {
   StyleSheet,
   Text,
@@ -19,12 +20,11 @@ export default class LoginScreen extends React.Component {
 
     loginUser = (email,password) => {
         try{
-            firebase.auth().signInWithEmailAndPassword(email,password).then(function(user){
-                console.log(user);
-            })
+            firebase.auth().signInWithEmailAndPassword(email,password).then(() => this.props.navigation.navigate('Main'));
         }catch(error){
             console.log(error.toString());
         }
+        
     }
     
     render() {
