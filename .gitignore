@@ -1,4 +1,5 @@
 package-lock.json
+package.json
 # alle persönlichen Daten kommen in die Karre
 .env
 # OSX
